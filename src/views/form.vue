@@ -57,11 +57,12 @@ export default {
 
 <template>
   <div class="bg-white  flex h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-   <span class="flex flex-row items-center ">
+  
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+      <span class="flex flex-row items-center justify-center mb-4 ">
     <img class="w-[3%] mx-2" src="/images/france.png" alt="drapeauFrançais" srcset="">
      <input type="checkbox" @click="toggleLocale" class="toggle" />
      <img class="w-[3%] mx-2" src="/images/drapeauAnglais.png" alt="drapeauAnglais" srcset=""></span> 
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
       <img class="mx-auto h-[15em] w-auto rounded-xl shadow-2xl" src="/images/car_ceva.jpeg" alt="aaron-travel"/>
       <h2 v-if="locale === 'fr'" class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Enregistrement </h2>
         <h2 v-if="locale === 'en'" class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"> Registration </h2>
