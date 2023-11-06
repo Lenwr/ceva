@@ -100,7 +100,6 @@ import {collection} from "firebase/firestore";
 
         <li v-if="isLoggedIn" class="text-white text-2xl">  {{displayName}}  </li>
         <li v-if="isLoggedIn" class="text-white" @click="logOut" ><a>Se deconnecter</a></li>
-        <li class="text-white" ><a>Nombre de camions en attente de dechargement : </a></li>
 
       </ul>
     </div>

@@ -5,6 +5,7 @@ import {format} from 'date-fns';
 import frLocale from 'date-fns/locale/fr';
 import {computed, ref, watch} from "vue";
 import Return from "../components/return.vue";
+import Export from '../views/export.vue'
 
 const db = useFirestore()
 const database = getFirestore()
@@ -92,14 +93,16 @@ const isTabActive = (statut) => selectedStatut.value === statut;
 
 <template>
 
-  <div class="tabs bg-primary flex  w-screen py-2 px-4">
-    <a class="tab my-2 rounded-full " v-for="statut in statuts" :key="statut"
+  <div class="tabs bg-primary flex  w-screen py-2 px-4 items-center justify-around">
+    <div class="flex items-center">    <a class="tab my-2 rounded-full " v-for="statut in statuts" :key="statut"
        :class="{
   'tab text-white': true,
   'bg-white': isTabActive(statut),
   'text-primary': isTabActive(statut)
 }"
-       @click="selectedStatut = statut">{{ statut }}</a>
+       @click="selectedStatut = statut">{{ statut }}</a></div> 
+    <Export class="text-primary  hover:bg-white  " :dataSend=filteredListe />
+
   </div>
 
   <!-- component -->

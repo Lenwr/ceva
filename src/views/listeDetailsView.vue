@@ -1,5 +1,4 @@
 <script setup>
-
 import {useCollection, useFirestore} from "vuefire";
 import {collection, doc, getFirestore, updateDoc} from "firebase/firestore";
 import {computed, onMounted, ref, watch} from "vue";
@@ -7,14 +6,17 @@ import {useRoute} from "vue-router";
 import {format} from "date-fns";
 import frLocale from "date-fns/locale/fr";
 import QrcodeVue from "qrcode.vue";
-
-
+import Export from '../views/export.vue'
 import {jsPDF} from "jspdf";
 import {StreamBarcodeReader} from "vue-barcode-reader";
+
+
+
 const route = useRoute()
 const db = useFirestore()
 const datas = useCollection(collection(db, 'dechargements'))
 const database = getFirestore()
+const messageFromParent = 'Ceci est un message du parent.'
 
 const detailId = ref(route.params.id)
 
@@ -57,6 +59,35 @@ const updateStatut = async (id) => {
 }
 
 
+
+
+/*
+
+const dateDebut = ref('');
+const dateFin = ref('');
+const filtrerListe = () => {
+  return datas.value.filter((dechargement) => {
+    const dateArrivee = new Date(dechargement.date); // Supposons que vous avez une propriété "date" dans votre modèle
+    const dateDebutValue = dateDebut.value ? new Date(dateDebut.value) : null;
+    const dateFinValue = dateFin.value ? new Date(dateFin.value) : null;
+
+    // Filtrer en fonction des dates de début et de fin
+    return (
+      (!dateDebutValue || dateArrivee >= dateDebutValue) &&
+      (!dateFinValue || dateArrivee <= dateFinValue)
+    );
+  });
+};
+
+const listeFiltree = computed(() => {
+  return filtrerListe();
+});
+
+const test = ()=>{
+  console.log(listeFiltree)
+}
+
+*/
 </script>
 
 <template>
@@ -67,7 +98,7 @@ const updateStatut = async (id) => {
   <div  class="bg-white h-full ">
     <div  class=" flex justify-center py-10">
       <div class="down w-[40%] h-auto">
-        <h1 class="mt-4 text-xl font-medium text-gray-700"> Immatriculation </h1>
+        <h1 class="mt-4 text-xl font-medium text-gray-700" > Immatriculation </h1>
         <h1 class="mt-4 text-xl font-medium text-gray-700">{{ liste.immatriculation }}</h1>
         <h1 class="mt-4 text-xl font-medium text-gray-700"> Arrivée </h1>
         <p class="mt-1 text-sm font-medium text-gray-900" >{{formatDateTime(liste.date)}}</p>
@@ -106,7 +137,20 @@ const updateStatut = async (id) => {
       </dialog>
     </div>
 
+
+
+<!--
+    <div>
+      <input class="text-black px-4 py-4" type="date" v-model="dateDebut" @input="filtrerListe" />
+    <input class="text-black  px-4 py-4"  type="date" v-model="dateFin" @input="filtrerListe" />
+    </div>
+  -->
+   
+
   </div>
+
+
+
 </template>
 
 <style scoped>
