@@ -5,6 +5,9 @@
 </template>
 
 <script setup>
+const props = defineProps({
+  dataSend: [], 
+});
 const test =()=> {
     const data = props.dataSend
     console.log(data)
