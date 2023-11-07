@@ -38,7 +38,7 @@ export default {
           nombreDeVoiture : nombreDeVoiture.value ,
           transporteur: transporteur.value,
           immatriculation: immatriculation.value,
-          date: today(),
+          date: date.value,
           statut : 'En attente'
         };
         const newDocumentRef = await addDoc(dechargementsCollection, Data);
@@ -71,7 +71,7 @@ export default {
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" @submit.prevent="submitForm">
 
-        <!-- <div class="date mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="date mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
           <div class="sm:col-span-3">
             <label for="date" class="block text-sm font-medium leading-6 text-gray-900">Date</label>
             <div class="mt-2">
@@ -79,7 +79,7 @@ export default {
                      class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>
-        </div> -->
+        </div>
 
 
 

@@ -101,7 +101,7 @@ const isTabActive = (statut) => selectedStatut.value === statut;
   'text-primary': isTabActive(statut)
 }"
        @click="selectedStatut = statut">{{ statut }}</a></div> 
-    <Export class="text-primary  hover:bg-white  " :dataSend=filteredListe />
+    <Export class="text-primary  " :dataSend=filteredListe />
 
   </div>
 
