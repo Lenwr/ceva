@@ -8,12 +8,6 @@
 const props = defineProps({
   dataSend: [], 
 });
-const test =()=> {
-    const data = props.dataSend
-    console.log(data)
-    const headers = Object.keys(data[0]);
-    console.log(headers)
-}
 const exportToCsv = () => {
     const data = props.dataSend
     const headers = Object.keys(data[0]);
